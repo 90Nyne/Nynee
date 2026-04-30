@@ -4,15 +4,15 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { Instagram, Youtube, Mail, Music2, Disc, PlayCircle } from 'lucide-react';
 
 const songs = [
-  { id: 1, title: 'Angelina', color: 'radial-gradient(circle at 70% 30%, #1a1a2e 0%, #050505 70%)', image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&q=80&w=600' },
-  { id: 2, title: 'Kele', color: 'radial-gradient(circle at 30% 70%, #2e1a1a 0%, #050505 70%)', image: 'https://images.unsplash.com/photo-1459749411177-042180ce673c?auto=format&fit=crop&q=80&w=600' },
-  { id: 3, title: 'Onyx', color: 'radial-gradient(circle at 50% 50%, #1a2e1a 0%, #050505 70%)', image: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80&w=600' },
-  { id: 4, title: 'Echoes', color: 'radial-gradient(circle at 20% 40%, #2e2e1a 0%, #050505 70%)', image: 'https://images.unsplash.com/photo-1496293455970-f8581aae0e3c?auto=format&fit=crop&q=80&w=600' },
-  { id: 5, title: 'Noir', color: 'radial-gradient(circle at 80% 80%, #121212 0%, #050505 70%)', image: 'https://images.unsplash.com/photo-1514533212735-5df27d970db0?auto=format&fit=crop&q=80&w=600' },
+  { id: 1, title: 'Angelina', color: 'radial-gradient(circle at 70% 30%, #1a1a2e 0%, #050505 80%), radial-gradient(circle at 20% 70%, #0d0d0d 0%, #050505 50%)', image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&q=80&w=600' },
+  { id: 2, title: 'Kele', color: 'radial-gradient(circle at 30% 70%, #2e1a1a 0%, #050505 80%), radial-gradient(circle at 80% 20%, #0d0d0d 0%, #050505 50%)', image: 'https://images.unsplash.com/photo-1459749411177-042180ce673c?auto=format&fit=crop&q=80&w=600' },
+  { id: 3, title: 'Onyx', color: 'radial-gradient(circle at 50% 50%, #1a2e1a 0%, #050505 80%), radial-gradient(circle at 10% 10%, #0d0d0d 0%, #050505 50%)', image: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80&w=600' },
+  { id: 4, title: 'Echoes', color: 'radial-gradient(circle at 20% 40%, #1a1a1a 0%, #050505 80%), radial-gradient(circle at 70% 80%, #121212 0%, #050505 50%)', image: 'https://images.unsplash.com/photo-1496293455970-f8581aae0e3c?auto=format&fit=crop&q=80&w=600' },
+  { id: 5, title: 'Noir', color: 'radial-gradient(circle at 80% 80%, #0a0a0a 0%, #050505 80%), radial-gradient(circle at 30% 30%, #080808 0%, #050505 50%)', image: 'https://images.unsplash.com/photo-1514533212735-5df27d970db0?auto=format&fit=crop&q=80&w=600' },
 ];
 
 const gallery = [
@@ -25,7 +25,7 @@ const gallery = [
 ];
 
 export default function App() {
-  const [activeMood, setActiveMood] = useState('radial-gradient(circle at 70% 30%, #1a1a2a 0%, #050505 70%)');
+  const [activeMood, setActiveMood] = useState('radial-gradient(circle at 70% 30%, #1a1a2a 0%, #050505 70%), radial-gradient(circle at 20% 80%, #0d0d0d 0%, #050505 50%)');
   const [isNavVisible, setIsNavVisible] = useState(false);
   const { scrollY } = useScroll();
   
@@ -145,7 +145,7 @@ export default function App() {
             <motion.div 
               key={song.id}
               onHoverStart={() => setActiveMood(song.color)}
-              onHoverEnd={() => setActiveMood('radial-gradient(circle at 70% 30%, #1a1a2a 0%, #050505 70%)')}
+              onHoverEnd={() => setActiveMood('radial-gradient(circle at 70% 30%, #1a1a2a 0%, #050505 70%), radial-gradient(circle at 20% 80%, #0d0d0d 0%, #050505 50%)')}
               whileHover={{ y: -20 }}
               className="flex-none w-[280px] md:w-[350px] group cursor-pointer"
             >
