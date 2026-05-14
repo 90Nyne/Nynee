@@ -76,11 +76,11 @@ export default function App() {
       </AnimatePresence>
 
       <section id="home" className="relative h-screen flex flex-col justify-center px-6 md:px-20 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-black/40">
+        <div className="absolute inset-0 z-0 bg-black">
           <motion.div 
-            className="absolute inset-0 opacity-40 mix-blend-overlay grayscale contrast-125"
+            className="absolute inset-0 opacity-60 grayscale contrast-[150%] brightness-[0.7] blur-[1px]"
             style={{ 
-              backgroundImage: 'url(https://images.unsplash.com/photo-1514525253361-bee8d488fbca?auto=format&fit=crop&q=80&w=1200)',
+              backgroundImage: 'url(/src/assets/images/regenerated_image_1778772302338.jpg), url(https://images.unsplash.com/photo-1514525253361-bee8d488fbca?auto=format&fit=crop&q=80&w=1200)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               x: heroX,
@@ -88,6 +88,7 @@ export default function App() {
               scale: 1.1
             }}
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-matte-black via-transparent to-transparent" />
         </div>
 
         <div className="relative z-10">
@@ -111,26 +112,59 @@ export default function App() {
         </div>
       </section>
 
-      <section id="manifesto" className="py-32 px-6 md:px-20 grid md:grid-cols-2 gap-20 items-center">
-        <div className="space-y-12">
-          <h2 className="text-white/30 text-[10px] uppercase tracking-[0.4em]">Poetic Manifesto</h2>
-          <div className="font-serif italic text-white/90 leading-relaxed">
-            <span className="block text-4xl md:text-5xl mb-6">My <span className="text-white font-bold not-italic">Vocal Technique</span></span>
-            <p className="text-lg md:text-xl mb-4 italic opacity-80">
+      <section id="manifesto" className="py-48 px-6 md:px-20 grid md:grid-cols-2 gap-24 items-center relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-[150px] pointer-events-none" />
+        
+        <div className="space-y-16">
+          <div className="space-y-4">
+            <h2 className="text-white/20 text-[10px] uppercase tracking-[0.5em]">Poetic Manifesto</h2>
+            <div className="h-[1px] w-12 bg-white/10" />
+          </div>
+
+          <div className="font-serif italic text-white/90 leading-[1.1] relative">
+            <motion.span 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="block text-5xl md:text-7xl mb-8 -ml-1"
+            >
+              My <span className="text-white font-bold not-italic font-sans text-6xl md:text-8xl tracking-tighter">Vocal</span>
+              <br />
+              <span className="inline-block translate-x-12 opacity-50 text-2xl md:text-3xl mt-2">Technique</span>
+            </motion.span>
+
+            <p className="text-3xl md:text-4xl mb-12 italic opacity-90 leading-tight">
               is a visceral extension of the street. Not just noise, but 
-              <span className="text-2xl md:text-3xl block mt-2 text-white not-italic">Storytelling etched in charcoal.</span>
+              <span className="block mt-6 text-white font-sans font-black uppercase text-5xl md:text-7xl tracking-[-0.05em] scale-y-110">
+                Storytelling
+              </span>
+              <span className="text-xl md:text-2xl block mt-2 opacity-40 font-light tracking-widest uppercase">etched in charcoal.</span>
             </p>
-            <p className="text-white/60 mb-8 max-w-sm">
-              We build bridges through <span className="text-white text-3xl block my-4 uppercase tracking-tighter font-sans not-italic">Afro-Fusion</span> rhythms that bleed into the infinite space between soul and synth.
+
+            <p className="text-white/70 max-w-sm mt-12 bg-charcoal/30 p-8 backdrop-blur-sm border border-white/5">
+              We build bridges through <br />
+              <span className="text-white text-4xl md:text-5xl block my-4 uppercase tracking-[-0.08em] font-sans not-italic font-black bg-white text-matte-black px-2 inline-block">Afro-Fusion</span>
+              <br />
+              rhythms that bleed into the infinite space between soul and synth.
             </p>
           </div>
         </div>
-        <div className="aspect-[4/5] bg-charcoal/40 border border-white/5 relative overflow-hidden group">
-          <img 
-            src="https://images.unsplash.com/photo-1514533212735-5df27d970db0?auto=format&fit=crop&q=80&w=800"
-            className="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-70 transition-opacity duration-700"
-            alt="Artist Silhouette"
-          />
+
+        <div className="relative group">
+          <div className="absolute inset-0 bg-white/5 -rotate-2 group-hover:rotate-0 transition-transform duration-700 pointer-events-none" />
+          <div className="aspect-[4/5] bg-charcoal border border-white/10 relative overflow-hidden">
+            <img 
+              src="/src/assets/images/regenerated_image_1778772302338.jpg"
+              className="w-full h-full object-cover grayscale brightness-75 group-hover:scale-110 group-hover:brightness-100 transition-all duration-1000"
+              alt="90Nyne Silhouette"
+              onError={(e) => {
+                e.currentTarget.src = "https://images.unsplash.com/photo-1514533212735-5df27d970db0?auto=format&fit=crop&q=80&w=800";
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-matte-black/60 to-transparent" />
+          </div>
+          <div className="absolute -bottom-4 -right-4 text-[8px] uppercase tracking-widest text-white/20 bg-matte-black p-2 border border-white/5">
+            Portrait_01.raw
+          </div>
         </div>
       </section>
 
@@ -204,25 +238,25 @@ export default function App() {
             <div className="space-y-8">
               <p className="text-white/30 text-[10px] uppercase tracking-[0.4em]">Booking & Inquiries</p>
               <a 
-                href="mailto:mgmt@90nyne.com" 
-                className="text-4xl md:text-7xl distorted-serif underline underline-offset-[20px] decoration-1 hover:text-white/70 transition-colors"
+                href="mailto:90nynemusics@gmail.com" 
+                className="text-xl md:text-3xl distorted-serif underline underline-offset-[12px] decoration-1 hover:text-white/70 transition-colors"
               >
-                mgmt@90nyne.com
+                90nynemusics@gmail.com
               </a>
             </div>
             
             <div className="flex flex-wrap gap-8 text-[11px] uppercase tracking-[0.3em] text-white/40">
               <a href="#" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Instagram className="w-4 h-4" /> Instagram
+                <Instagram className="w-4 h-4" /> 90Nyne_music
               </a>
               <a href="#" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Music2 className="w-4 h-4" /> Spotify
+                <Music2 className="w-4 h-4" /> 90Nyne_music
               </a>
               <a href="#" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Youtube className="w-4 h-4" /> Youtube
+                <Youtube className="w-4 h-4" /> 90Nyne_music
               </a>
               <a href="#" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Disc className="w-4 h-4" /> TikTok
+                <Disc className="w-4 h-4" /> 90Nyne_music
               </a>
             </div>
           </div>
