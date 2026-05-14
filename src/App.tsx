@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { Instagram, Youtube, Mail, Music2, Disc, PlayCircle } from 'lucide-react';
+import artistHero from './assets/images/regenerated_image_1778772302338.jpg';
 
 const songs = [
   { id: 1, title: 'Angelina', color: 'radial-gradient(circle at 70% 30%, #1a1a2e 0%, #050505 80%), radial-gradient(circle at 20% 70%, #0d0d0d 0%, #050505 50%)', image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&q=80&w=600' },
@@ -80,7 +81,7 @@ export default function App() {
           <motion.div 
             className="absolute inset-0 opacity-60 grayscale contrast-[150%] brightness-[0.7] blur-[1px]"
             style={{ 
-              backgroundImage: 'url(/src/assets/images/regenerated_image_1778772302338.jpg), url(https://images.unsplash.com/photo-1514525253361-bee8d488fbca?auto=format&fit=crop&q=80&w=1200)',
+              backgroundImage: `url(${artistHero}), url(https://images.unsplash.com/photo-1514525253361-bee8d488fbca?auto=format&fit=crop&q=80&w=1200)`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               x: heroX,
@@ -153,7 +154,7 @@ export default function App() {
           <div className="absolute inset-0 bg-white/5 -rotate-2 group-hover:rotate-0 transition-transform duration-700 pointer-events-none" />
           <div className="aspect-[4/5] bg-charcoal border border-white/10 relative overflow-hidden">
             <img 
-              src="/src/assets/images/regenerated_image_1778772302338.jpg"
+              src={artistHero}
               className="w-full h-full object-cover grayscale brightness-75 group-hover:scale-110 group-hover:brightness-100 transition-all duration-1000"
               alt="90Nyne Silhouette"
               onError={(e) => {
